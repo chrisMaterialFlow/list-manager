@@ -1,0 +1,17 @@
+{
+  "name": "file-compare",
+  "version": "0.0.0",
+  "description": "Express js web app used to compare product files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.4",
+    "bluebird": "~3.3.4",
+    "multer": "~1.1.0",
+    "body-parser": "~1.15.0"
+  }
+}
