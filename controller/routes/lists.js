@@ -2,11 +2,11 @@ var router = require('express').Router()
 var path = require('path')
 var multer = require('multer')
 var upload = multer({dest: 'uploads/'})
-var lists = require('./controller/modules/lists')
+var lists = require('../modules/lists')
 var bodyParser = require('body-parser')
 var mysql = require('mysql')
 
-router.get('/lists/download/:id/:type', function(req, res) {
+router.get('/download/:id/:type', function(req, res) {
     var file_type = req.params.type;
     var list_id = req.params.id;
     // Set Valid Download Formats
@@ -42,7 +42,7 @@ router.get('/lists/download/:id/:type', function(req, res) {
         console.log("error with file processing:" + err);
       });
 });
-router.post('/lists/upload/:type',upload.single('file'), function(req, res) {
+router.post('/upload/:type',upload.single('file'), function(req, res) {
 /*
   SUMMARY:
     This route allows a user to upload a file with a table of data to
@@ -61,7 +61,7 @@ router.post('/lists/upload/:type',upload.single('file'), function(req, res) {
   })
   res.send('the upload went through');
 });
-router.post('/lists/compare', function(req, res){
+router.post('/compare', function(req, res){
   /*
   SUMMARY:
     User sends a bunch of lists id's in a json file to compare {ids:[list1001,list1002], type:how_to_compare}
